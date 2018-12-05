@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="lib/jquery-3.3.1.js"></script>
+
+</head>
+<body>
+<div id="info"></div>
+
+
+<script>
+    var info = $('#info');
+
+    var str1 = "中職卅年球季明年三月廿三日開打，被喻為明年職棒發展史的重要里程碑";
+    var str2 = "abcd";
+
+    info.append( str1.length + '<br>' );
+    info.append( str1.charAt(6) + '<br>' );
+    info.append( str1.charCodeAt(6) + '<br>' );
+    info.append( str2.charCodeAt(0) + '<br>' );
+    info.append( str1.concat(str2) + '<br>' ); // str1+str2
+    info.append( str1.indexOf('明年') + '<br>' );
+    info.append( str1.indexOf('明年', 7) + '<br>' );
+    info.append( str1.lastIndexOf('明年') + '<br>' );
+    info.append( str1.lastIndexOf('明年', 7) + '<br>' );
+
+
+
+</script>
+
+
+
+</body>
+</html>
+
