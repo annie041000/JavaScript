@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>String</title>
+    <script src="lib/jquery-3.3.1.js"></script>
+</head>
+<body>
+<div id="info"></div>
+
+<script>
+    var info = $('#info');
+    var str1 = '努欽告訴大陸國家主席習近平明確承諾向美國企業開放大陸中國市場';
+    var str2 = 'abced';
+
+    info.append( str1.length + '<br>');
+    info.append( str1.charAt(0) + '<br>');
+    info.append( str1.charCodeAt(0) + '<br>');
+    info.append( str2.charCodeAt(0) + '<br>');
+    info.append( str1.indexOf('大陸') + '<br>');//從前面數來找尋('')的字元
+    info.append( str1.indexOf('大陸', 5) + '<br>');
+    info.append( str1.lastIndexOf('大陸') + '<br>');
+    info.append( str1.lastIndexOf('大陸', 5) + '<br>');//倒過來從後面找尋('')字元
+    info.append( str1.slice(6, 10) + '<br>');//顯示某區間的字元
+    info.append( str1.split('大陸') + '<br>');//將字元變成','分割
+    info.append( str1.split('大陸').join('') + '<br>');//將字元刪除
+    info.append( str1.split('大陸').join('中華台北') + '<br>');//將字元改成join(裡面的字元)
+
+
+
+
+
+
+</script>
+</body>
+</html>

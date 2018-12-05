@@ -17,28 +17,28 @@
     var b = 3;
     var c = 5;
     var d = 3;
-    var e,f;
+    var e, f;
 
 
-    info.append( a && b);
-    info.append( '<br>' );
+    info.append(a && b);
+    info.append('<br>');
 
     a = 0;
-    info.append( a && b);
-    info.append( '<br>' );
+    info.append(a && b);
+    info.append('<br>');
     //前面是false的話,後面的值都是false就不用管了;
 
-    info.append( c || d);
-    info.append( '<br>' );
+    info.append(c || d);
+    info.append('<br>');
 
     c = 0;
-    info.append( c || d);
-    info.append( '<br>' );
+    info.append(c || d);
+    info.append('<br>');
 
 
-    (e=5) || (f=10);
-    info.append('e: ' + e +'<br>');
-    info.append('f: ' + f +'<br>');
+    (e = 5) || (f = 10);
+    info.append('e: ' + e + '<br>');
+    info.append('f: ' + f + '<br>');
     //快捷運算子,左邊已經是true後,右邊的就管了
 
 
