@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Switch</title>
+    <title>For</title>
     <script src="lib/jquery-3.3.1.js"></script>
 </head>
 <body>
@@ -16,14 +16,17 @@
     var i;
 
     for (i=1; i<=10; i++){
-        console.log(i);
+        // console.log(i);
+        info.append(i + '<br>');
 
     }
-    for (i=10; i>0; i--){
-        console.log(i);
+    for (i=10; i>=1; i--){
+        // console.log(i);
+        info.append(i + '<br>');
     }
-    for (i=53; i<=89; i=i+2){
-        console.log(i);
+    for (i=53; i<=89; i+=2){
+        // console.log(i);
+        info.append(i + '<br>');
     }
 
 
