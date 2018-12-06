@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="lib/jquery-3.3.1.js"></script>
+
+</head>
+<body>
+score:
+<input type="number" id="aa" min="0" max="100">
+<button>=</button>
+<div id="info" style="display: inline-block"></div>
+
+
+<script>
+    var info = $('#info');
+    var aa = $('#aa');
+
+    $('button').click(function(){
+        var s = parseInt( aa.val()/10 );
+
+        switch(s){
+            case 10:
+            case 9:
+                info.text('A');
+                break;
+            case 8:
+                info.text('B');
+                break;
+            case 7:
+                info.text('C');
+                break;
+            case 6:
+                info.text('D');
+                break;
+            default:
+                info.text('Fail');
+        }
+    });
+
+
+</script>
+
+
+
+</body>
+</html>
+
