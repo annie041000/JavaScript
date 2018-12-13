@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Array methods</title>
+    <script src="lib/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    <div id="info"></div>
+
+
+    <script>
+        var info = $('#info'), i;
+        var str = '台灣應思考民粹和民主的界線';
+        var ar = str.split(''),
+            br = [17, 27, 58, 32, 9],
+            cr, dr;
+
+        info.append(ar + '<br>');
+        ar.reverse();
+        info.append(ar + '<br>');
+        info.append('--------------<br>');
+
+
+        ar.sort();
+        info.append(ar + '<br>');
+        info.append('--------------<br>');
+
+        //依照字串比大小排順序
+        br.sort();
+        info.append(br + '<br>');
+        info.append('--------------<br>');
+
+
+        //自訂排序規則,數值由小排到大
+        br.sort(function (a, b) {
+            return a - b;
+        });
+        info.append(br + '<br>');
+        info.append('--------------<br>');
+
+
+
+    </script>
+</body>
+
+</html>

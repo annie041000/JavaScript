@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ForEach</title>
+    <script src="lib/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    <div id="info"></div>
+
+
+    <script>
+        // var i; //forEach的變數歸forEach,在這邊設定會出現undefined
+        var info = $('#info');
+        var ar = [1, 2, 3, 'aa', 'bb', 7, 89];
+        var cr = [2, 4, 6, 8, 10];
+
+        ar.forEach(function (value, i) {
+            info.append(value + ':' + i + '<br>');
+        });
+
+        var br = ar.filter(function (value) {
+            // return typeof value === 'string'; //符合此類型(字串)的會回傳true;反之為false
+            return typeof value === 'number'; //回傳數值
+        });
+        info.append('------------------------<br>');
+        info.append(br + '<br>');
+
+
+        var dr = cr.map(function (value) {
+            return value * value;
+        });
+        info.append('------------------------<br>');
+        info.append(dr + '<br>');
+
+
+    </script>
+</body>
+
+</html>

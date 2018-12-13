@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Function02</title>
+    <script src="lib/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    <div id="info"></div>
+
+
+    <script>
+        var info = $('#info');
+
+        info.append('123<br>');
+        info.append('456<br>');
+
+        (function func() {
+            info.append('123<br>');
+            info.append('456<br>');
+        })();
+
+        (function func(a, b) {
+            info.append(a + '<br>');
+            info.append(b + '<br>');
+        }(10, 100));
+
+        $(function () {
+
+        });
+
+    </script>
+</body>
+
+</html>

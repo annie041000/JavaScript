@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Local Vars</title>
+    <script src="lib/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    <div id="info"></div>
+
+
+    <script>
+        var info = $('#info');
+        var a = 5,
+            b = 10;
+
+
+        var func = function () {
+
+            var a = 100; //一旦在此function宣告a後, 此a就是區域變數!!!
+            a = 100; //設定a的值大家的a就是100;
+
+            info.append('global :' + window.a + '<br>'); //設定window可以吃到外層的a變數
+            info.append('ineer :' + a + '<br>');
+            info.append('ineer :' + b + '<br>');
+        }
+        func();
+        info.append('outer :' + a + '<br>');
+        info.append('outer :' + b + '<br>');
+    </script>
+</body>
+
+</html>

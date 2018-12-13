@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSON</title>
+    <script src="lib/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    <div id="info" style="display: inline-block"></div>
+
+    <script>
+        var info = $('#info'),
+            s;
+        var obj = {
+            name: 'fuyu',
+            lastname: 'Wu',
+            age: 24,
+        };
+
+        var str = JSON.stringify(obj);
+        var obj4 = JSON.parse(str);
+        obj.age = 18;
+
+        for (s in obj4) {
+            info.append(s + ': ' + obj4[s] + '<br>');
+        }
+
+
+
+    </script>
+</body>
+
+</html>

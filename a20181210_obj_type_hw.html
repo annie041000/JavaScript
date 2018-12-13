@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>object homework</title>
+    <script src="lib/jquery-3.3.1.js"></script>
+    <style>
+        #info {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: rgb(108, 226, 163);
+
+        }
+
+        .ball {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: #250709;
+            border-radius: 50%;
+            color: white;
+            line-height: 60px;
+            text-align: center;
+            left: 50px;
+            top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="info" style="display: inline-block">
+        <!-- <div class="ball"></div> -->
+    </div>
+
+    <script>
+        var info = $('#info'),
+            obj,
+            i, x, y, s;
+
+        var data = {
+            紅: 'red',
+            橙: 'orange',
+            黃: 'yellow',
+            綠: 'green',
+            藍: 'blue',
+            靛: '#5F39FF',
+            紫: 'purple',
+        };
+        i = 0;
+        for (s in data) {
+            obj = $('<div class="ball"></div>');
+            obj.text(s);
+            obj.css({
+                left: 50 + i * 70,
+                backgroundColor: data[s]
+            })
+            info.append(obj);
+            i++;
+        }
+
+    </script>
+
+
+
+
+</body>
+
+</html>

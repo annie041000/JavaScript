@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>obj position</title>
+    <style>
+        .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #86de34;
+
+        }
+
+        .ball {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            border-radius: 50%;
+            color: white;
+            background-color: #ff0000;
+            top: 100px;
+            left: 50px;
+        }
+    </style>
+    <script src="lib/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    <div class="rect">
+        <!--<div class="ball"></div>-->
+    </div>
+    <script>
+        var rect = $('.rect'),
+            i, x, y,
+            obj;
+
+        for (i = 0; i < 9; i++) {
+            x = (i % 5);
+            y = parseInt(i / 5);
+            obj = $('<div class="ball"></div>');
+            rect.append(obj);
+            obj.text(i);
+            obj.css({
+                top: 100 + y * 80,//垂直跟著k
+                left: 50 + x * 70,//水平跟著i
+
+            });
+        };
+
+
+
+
+    </script>
+</body>
+
+</html>

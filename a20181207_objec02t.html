@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object02</title>
+    <script src="lib/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    <div id="info" style="display: inline-block"></div>
+
+    <script>
+        var info = $('#info'),
+            s;
+        var obj = {
+            name: 'fuyu',
+            lastname: 'Wu',
+            age: 24,
+        };
+        info.append(obj + '<br>'); //會自動辨認為字串
+        info.append(obj.name + '<br>'); //須給Key才能召喚key裡面的值
+        info.append(obj.lastname + '<br>');
+        obj.gender = 'female'; //可以後來再增加key 
+        delete obj.lastname; //or delete key
+
+        for (s in obj) {
+            info.append(s + ': ' + obj[s] + '<br>');
+        }
+
+
+
+    </script>
+</body>
+
+</html>

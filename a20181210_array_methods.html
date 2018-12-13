@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Array contact</title>
+    <script src="lib/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    <div id="info"></div>
+
+
+    <script>
+        var info = $('#info'), i;
+        var ar = [1, 2, 3, 4],
+            br = ['a', 'b', 'c'],
+            cr, dr;
+
+        info.append(ar.concat(br) + '<br>');
+        info.append(br.concat(ar) + '<br>');
+        info.append(ar.length + '<br>');
+        info.append(br.length + '<br>');
+
+        info.append('--------------<br>');
+
+        cr = ar;
+        dr = ar.concat(); //單層拷貝
+
+        ar.push('aaa');
+        info.append(cr + '<br>');
+        info.append(dr + '<br>');
+
+
+        // for (i = 0; i < ar.length; i++) {
+        //     info.append(ar[i] + '<br>');
+        // }
+        // info.append('--------------<br>');
+        // ar[10] = 12;
+        // for (i = 0; i < ar.length; i++) {
+        //     info.append(ar[i] + '<br>');
+        // }
+        // info.append('--------------<br>');
+
+        // for (i in ar) {
+        //     info.append(ar[i] + '<br>');
+        // }
+        // info.append('--------------<br>');
+
+    </script>
+</body>
+
+</html>

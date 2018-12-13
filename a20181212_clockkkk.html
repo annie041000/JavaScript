@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clockkkk</title>
+    <script src="lib/jquery-3.3.1.js"></script>
+    <style>
+        .clock {
+            position: absolute;
+            background-color: rgb(5, 56, 24);
+            border: 1px solid rgb(29, 13, 2);
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+        }
+
+        .hand {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+
+        }
+
+        .hand-sec {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 1px solid rgb(221, 207, 8);
+            background-image: url(img/);
+            left: -5px;
+            top: -145px;
+        }
+
+        .min-sec {
+            position: absolute;
+            width: 3px;
+            height: 145px;
+            background-color: rgb(6, 177, 48);
+            left: -4px;
+            top: -145px;
+        }
+
+        .hr-sec {
+            position: absolute;
+            width: 5px;
+            height: 96px;
+            background-color: rgb(0, 221, 136);
+            left: -8px;
+            top: -95px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clock">
+        <div class="hand sec">
+            <div class="hand-sec"></div>
+        </div>
+        <div class="hand min">
+            <div class="min-sec"></div>
+        </div>
+        <div class="hand hr">
+            <div class="hr-sec"></div>
+        </div>
+    </div>
+
+
+    <script>
+        var $sec = $('.sec');
+        var $min = $('.min');
+        var $hr = $('.hr');
+
+        var c = $('<div class= circle></div>');
+        var obj;
+
+        var run = function () {
+            var now = new Date;
+            var sec = now.getSeconds() * 6 + now.getMilliseconds() * 6 / 1000; //讓秒針以毫秒跑
+            var min = now.getMinutes() * 6;
+            var hr = now.getHours() * 30 + now.getMinutes() * 0.5;
+
+            $sec.css('transform', 'rotate(' + sec + 'deg)');
+            $min.css('transform', 'rotate(' + min + 'deg)');
+            $hr.css('transform', 'rotate(' + hr + 'deg)');
+            setTimeout(run, 30);
+
+        };
+        run();
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

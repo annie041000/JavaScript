@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Math.random</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <style>
+        body {
+            background: lightblue;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ball {
+            position: absolute;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            transition: .5s;
+            filter: hue-rotate(0);
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var ar = [];
+        var items;
+        for (i = 1; i <= 500; i++) {
+            ar.push(i);
+            items = $(`<div class="ball"></div>`)
+            $('body').append(items);
+            items.css({
+                backgroundColor: `rgba(${255 / (Math.random() * 6)},${255 / (Math.random() * 1)},${255 / (Math.random() * 2)},${1 / (Math.random() * 10)})`,
+                transform: `scale(${Math.random() * 10})`,
+                top: `${Math.random() * 100}vh`,
+                left: `${Math.random() * 100}vw`,
+            });
+        }
+
+        function loop() {
+            $('.ball').css({
+                filter: `hue-rotate(${Math.random() * 360}deg)`,
+            })
+            $('.ball').each(function () {
+                $(this).css({
+                    backgroundColor: `rgba(${255 / (Math.random() * 6)},${255 / (Math.random() * 1)},${255 / (Math.random() * 2)},${1 / (Math.random() * 10)})`,
+                    transform: `scale(${Math.random() * 10})`,
+                    top: `${Math.random() * 100}vh`,
+                    left: `${Math.random() * 100}vw`,
+                })
+            });
+            setTimeout("loop()", 1000);
+        }
+
+        loop();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Function02</title>
+    <script src="lib/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    <div id="info"></div>
+
+
+    <script>
+        var info = $('#info');
+
+        function func(num) {
+            // info.append(num * n + '<br>');
+            // n = 10; /*結果等於--->在後面才宣告var n = 10 ----> NaN */
+            return num * num;
+        }
+        info.append(func(6) * 10 + '<br>');
+        info.append(func(6) * 15 + '<br>');
+
+        var ar = [5, 6, 7, 8, 9];
+        var a = 10;
+        var func2 = function (array, n) {
+            array.pop();
+            n++
+        };
+        func2(ar, a);
+        info.append(a + '<br>');
+        info.append(ar + '<br>');
+
+    </script>
+</body>
+
+</html>

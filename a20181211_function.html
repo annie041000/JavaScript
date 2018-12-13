@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Function</title>
+    <script src="lib/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    <div id="info"></div>
+
+
+    <script>
+        var info = $('#info');
+
+        function func(num) {
+            // info.append(num * n + '<br>');
+            // n = 10; /*結果等於--->在後面才宣告var n = 10 ----> NaN */
+            return num * num;
+        }
+        info.append(func(6) * 10 + '<br>');
+        info.append(func(6) * 15 + '<br>');
+
+        //ES6,預設值的寫法
+        function func2(a = 2, b = 3, c = 4) {
+            return a * b * c;
+        }
+        info.append(func2(2 * 3 * 4) + '<br>');
+
+        //ES5,預設值的寫法
+        function func3(a, b, c) {
+            a === undefined ? (a = 2) : '';
+            b === undefined ? (b = 3) : '';
+            c === undefined ? (c = 4) : '';
+        }
+        info.append(func3(2 * 3 * 4) + '<br>');
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Suffle</title>
+    <script src="lib/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    <div id="info"></div>
+
+
+    <script>
+        var i;
+        var ar = [];
+
+        for (i = 0; i < 10; i++) {
+            console.log(Math.random());
+        }
+        for (i = 1; i < 42; i++) {
+            ar.push(i);
+        }
+        console.log(ar);
+
+        ar.sort(function (a, b) {
+            return Math.random() - 0.5; //有一半的機率會對調
+        });
+
+        $('#info').text(ar);
+
+        /*var info = $('#info'), i;
+        var str = '台灣應思考民粹和民主的界線';
+        var ar = str.split('');
+        var br = ar.slice(); //拷貝
+
+
+        info.append(ar + '<br>');
+        info.append(br.splice(3, 2) + '<br>');
+        info.append(br + '<br>');
+        info.append('--------------<br>');
+
+        br = ar.slice(); //拷貝
+        info.append(ar + '<br>');
+        info.append(br.splice(3, 0, '多', '加') + '<br>'); //插入新增的元素
+        info.append(br + '<br>');
+        info.append('--------------<br>');
+
+        br = ar.slice(); //拷貝
+        info.append(ar + '<br>');
+        info.append(br.splice(3, 2, 'a', 'b') + '<br>'); //取代新加入的元素
+        info.append(br + '<br>');
+        info.append('--------------<br>');*/
+
+
+
+
+    </script>
+</body>
+
+</html>

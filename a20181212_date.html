@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Date</title>
+    <script src="lib/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    <div id="info"></div>
+
+
+    <script>
+        var info = $('#info');
+        var now = new Date();
+
+        info.append(now.toString() + '<br>');
+        info.append(now.getFullYear() + '<br>'); //年
+        info.append(now.getMonth() + '<br>');  //月份 從0開始數到11
+        info.append(now.getDate() + '<br>'); //幾號
+        info.append(now.getDay() + '<br>');
+        info.append(now.getHours() + '<br>');
+        info.append(now.getMinutes() + '<br>');
+        info.append(now.getSeconds() + '<br>');
+    </script>
+</body>
+
+</html>
