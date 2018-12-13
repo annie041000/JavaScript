@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Random</title>
+    <style>
+        .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #86de34;
+
+        }
+
+        .ball {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid #000000;
+            background-color: #995c5c;
+        }
+    </style>
+    <script src="lib/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    <div class="rect">
+        <!--<div class="ball"></div>-->
+    </div>
+    <script>
+        var rect = $('.rect'),
+            i, x, y,
+            obj, size;
+        var size = [];
+
+        for (i = 0; i < 100; i++) {
+            obj = $('<div class="ball"></div>');
+
+            x = Math.floor(Math.random() * 800);
+            y = Math.floor(Math.random() * 600);
+
+            obj.css({
+                left: x,
+                top: y,
+                // width: Math.random(),
+                // height: Math.random(),
+                backgroundColor: 'hsl(' + Math.floor(Math.random() * 360) + ',100%,50%)'
+            });
+            rect.append(obj);
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Circle</title>
+    <style>
+        .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #86de34;
+
+        }
+
+        .ball {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            /* border: 1px solid #000000; */
+            background-color: #995c5c;
+        }
+    </style>
+    <script src="lib/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    <div class="rect">
+        <!--<div class="ball"></div>-->
+    </div>
+    <script>
+        var rect = $('.rect'),
+            i, x, y,
+            obj, size;
+        var balls = [];
+        var ballNum = 12; //一個圓形切12塊
+        var unitAng = Math.PI * 2 / ballNum; //算出每個的弧度
+
+        for (i = 0; i < ballNum; i++) {
+            obj = $('<div class="ball"></div>');
+            obj.text(i);
+            x = 400 - 25 + Math.floor(Math.cos(unitAng * i) * 200);
+            y = 300 - 25 + Math.floor(Math.sin(unitAng * i) * 200); //將圓形的中心點移至正方形的正中間,將小園的半徑調小,弧度,最後在乘上圓的半徑
+
+            obj.css({
+                left: x,
+                top: y,
+                backgroundColor: 'hsl(' + Math.floor(Math.random() * 360) + ',100%,50%)'
+            });
+            rect.append(obj);
+        }
+
+    </script>
+</body>
+
+</html>
