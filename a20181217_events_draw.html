@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Draw</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+        .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #285006;
+
+        }
+
+        .ball {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #ffee00;
+            pointer-events: none;
+            /*不要感應滑鼠,直接加在css*/
+        }
+    </style>
+    <script src="lib/jquery-3.3.1.js"></script>
+
+</head>
+
+<body>
+    <div class="rect" id="my_rect">
+    </div>
+
+    <script>
+        var rect = $('.rect');
+        var ball, i;
+
+
+        rect.on('mousemove', function (event) {
+            ball = $('<div class="ball"></div>');
+            rect.append(ball);
+            ball.css({
+                left: event.offsetX - 10,
+                top: event.offsetY - 10
+            });
+
+            ball.fadeOut(200, function (event) {
+                $(this).remove();
+            });
+            console.log(event);
+        });
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

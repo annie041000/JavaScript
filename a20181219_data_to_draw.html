@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data to Draw</title>
+    <style>
+        .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #285006;
+
+        }
+
+        .ball {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid black;
+            background-color: #ffee00;
+            pointer-events: none;
+            /*不要感應滑鼠,直接加在css*/
+            display: none;
+            /*可以加一些效果搭配fadeIn*/
+        }
+    </style>
+    <script src="lib/jquery-3.3.1.js"></script>
+
+</head>
+
+<body>
+    <div class="rect" id="my_rect">
+    </div>
+    <button>Load</button>
+
+    <script>
+        var rect = $('#my_rect'),
+            i, ball, obj, size, backgroundColor;
+        var data;
+
+
+        var drawBall = function (obj) {
+            ball = $('<div class="ball"></div>');
+
+            ball.css({
+                width: obj.s,
+                height: obj.s,
+                left: obj.x,
+                top: obj.y,
+                backgroundColor: 'hsl(' + obj.bc + ',100%,50%)'
+            });
+            rect.append(ball);
+            ball.fadeIn();
+        };
+
+        // for (i = 0; i < drawBall.length; i++) {
+        //     drawBall(data[i]);
+        // };
+
+        i = 0;
+        var run = function () {
+            if (i >= data.length) {
+                return; //大於等於圖形的長度會結束
+            }
+            drawBall(data[i]);
+            i++;
+            setTimeout(run, 30);
+        };
+
+
+        $('button').click(function () {
+            $.get('data/data02.json', function (data) {
+                window.data = data; //設定給全域變數
+                run();
+            }, 'json');
+        });
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

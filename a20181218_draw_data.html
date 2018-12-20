@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Draw Data</title>
+    <style>
+        .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #285006;
+
+        }
+
+        .ball {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid black;
+            background-color: #ffee00;
+            pointer-events: none;
+            /*不要感應滑鼠,直接加在css*/
+        }
+    </style>
+    <script src="lib/jquery-3.3.1.js"></script>
+
+</head>
+
+<body>
+    <div class="rect" id="my_rect">
+    </div>
+    <button>convert</button>
+    <textarea id="ta" cols="80" rows="20"></textarea>
+
+    <script>
+        var data = [];
+        var rect = $('#my_rect'),
+            i, ball, obj, size, backgroundColor, x, y;
+
+
+        var mMove = function (event) {
+            ball = $('<div class="ball"></div>');
+            size = 10 + Math.floor(Math.random() * 31); //10~40
+            backgroundColor = Math.floor(Math.random() * 360);
+
+            obj = {
+                s: size,
+                x: event.offsetX - size / 2,
+                y: event.offsetY - size / 2,
+                bc: backgroundColor
+            };
+            ball.css({
+                width: obj.s,
+                height: obj.s,
+                left: obj.x,
+                top: obj.y,
+                backgroundColor: 'hsl(' + obj.bc + ',100%,50%)'
+            });
+
+            /*可以合併寫--> 
+            obj = {
+                width:size,
+                height:size,
+                left: event.offsetX - size / 2,
+                top: obj.y,
+                backgroundColor: 'hsl(' + obj.bc + ',100%,50%)'
+            }
+            
+            
+            */
+            rect.append(ball);
+
+            data.push(obj);
+
+        };
+
+        var mDown = function (event) {
+            rect.on('mousemove', mMove);
+        };
+
+        var mUp = function (event) {
+            rect.off('mousemove');
+        };
+
+        // 註冊事件處理器
+        rect.on('mousedown', mDown);
+        $(window).on('mouseup', mUp); // 在任何地方放開, 觸發
+
+
+        $('button').click(function () {
+            $('#ta').val(JSON.stringify(data))
+        });
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

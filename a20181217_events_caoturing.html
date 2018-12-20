@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Capturing</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+        .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #285006;
+
+        }
+
+        .ball {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            line-height: 80px;
+            text-align: center;
+            border: 1px solid #000000;
+            background-color: #c21a03;
+            top: 260px;
+            left: 360px;
+        }
+
+        .small_rect {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000000;
+            background-color: #fbff00;
+            top: 20px;
+            left: 20px;
+        }
+    </style>
+    <script src="lib/jquery-3.3.1.js"></script>
+
+</head>
+
+<body>
+    <div class="rect" id="my_rect">
+        <div class="ball">
+            <div class="small_rect"></div>
+        </div>
+
+    </div>
+    <script>
+        var rect = $('#my_rect')[0];
+        var ball = $('.ball')[0],
+            s_rect = $('.small_rect')[0],
+            i;
+
+
+        var handler = function (event) {
+            console.log('target', event.target);
+            console.log('currentTarget', event.currentTarget);
+            //currentTarget:只會認註冊的jq物件
+            console.log('------', event.eventPhase);
+        };
+        //註冊事件處裡器
+        ball.addEventListener('click', handler);
+        s_rect.addEventListener('click', handler);
+        rect.addEventListener('click', handler);
+        ball.addEventListener('click', handler, true);
+        s_rect.addEventListener('click', handler, true);
+        rect.addEventListener('click', handler, true);
+
+
+    </script>
+</body>
+
+</html>

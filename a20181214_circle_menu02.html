@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Circle menu02</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+        .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #182c06;
+
+        }
+
+        .ball {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            line-height: 80px;
+            text-align: center;
+            /* border: 1px solid #000000; */
+            background-color: #c21a03;
+            top: 260px;
+            left: 360px;
+        }
+
+        .big-ball {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            line-height: 120px;
+            text-align: center;
+            border: 1px solid #000000;
+            background-color: #fbff00;
+            top: 250px;
+            left: 350px;
+        }
+    </style>
+    <script src="lib/jquery-3.3.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js" integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="rect">
+        <div class="big-ball"></div>
+    </div>
+    <script>
+        var rect = $('.rect'),
+            i, x, y,
+            obj, size;
+        var bigBall = $('.big-ball');
+        var balls = [];
+        var ballNum = 12; //一個圓形切12塊
+        var unitAng = Math.PI * 2 / ballNum; //算出每個的弧度 
+
+        var menuOpened = false; //一開始就關起來的
+        var bigEnabled = true; //主按鈕可不可以點按
+
+        for (i = 0; i < ballNum; i++) {
+            obj = $('<div class="ball" data-bx="360" data-by="260"></div>');
+            obj.text(i);
+
+            rect.append(obj);
+            balls.push(obj);
+
+        }
+        rect.append(bigBall);
+
+
+
+        balls.forEach(function (el, i) {
+            x = 400 - 40 + Math.floor(Math.cos(unitAng * i) * 200);
+            y = 300 - 40 + Math.floor(Math.sin(unitAng * i) * 200);
+            el.attr('data-ex', x);
+            el.attr('data-ey', y);
+
+
+        });
+        bigBall.click(function () {
+            // 如果不能點按, 就返回
+            if (!bigEnabled) {
+                return;
+            }
+
+            // 要跑動畫, 不再點按
+            bigEnabled = false;
+
+            menuOpened = !menuOpened; // 相反
+            if (menuOpened) {
+                // 展開
+                balls.forEach(function (el, i) {
+                    var ex = el.attr('data-ex');
+                    var ey = el.attr('data-ey');
+
+                    el.delay(100 * i).animate({
+                        left: ex,
+                        top: ey
+                    }, 300, 'easeOutBack');
+                });
+                console.log('到底有沒有點到啊');
+            } else {
+                // 收起來
+                balls.forEach(function (el, i) {
+                    var bx = el.attr('data-bx');
+                    var by = el.attr('data-by');
+
+                    el.delay(100 * i).animate({
+                        left: bx,
+                        top: by
+                    }, 300, 'easeOutBack');
+                });
+            }
+
+            // 定時去開啟按鈕的點按功能
+            setTimeout(function () {
+                bigEnabled = true;
+            }, 1600);
+        });
+    </script>
+</body>
+
+</html>

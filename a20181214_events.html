@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Events</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+        .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #182c06;
+
+        }
+
+        .ball {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            line-height: 80px;
+            text-align: center;
+            /* border: 1px solid #000000; */
+            background-color: #c21a03;
+            top: 260px;
+            left: 360px;
+        }
+
+        .big-ball {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            line-height: 120px;
+            text-align: center;
+            border: 1px solid #000000;
+            background-color: #fbff00;
+            top: 250px;
+            left: 350px;
+        }
+    </style>
+    <script src="lib/jquery-3.3.1.js"></script>
+
+</head>
+
+<body>
+    <div class="rect" id="my_rect">
+        <div class="ball" onclick="console.log('出現吧')"></div>
+    </div>
+    <script>
+
+    </script>
+</body>
+
+</html>
